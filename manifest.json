@@ -1,9 +1,9 @@
 {
 
-  "description": "Adds a browser icon that shows if hackerspace.gr is open",
+  "description": "Adds a browser icon that shows if hackerspace.gr is open, it displays a counter of people inside.",
   "manifest_version": 2,
   "name": "hsgr-status-checker",
-  "version": "0.1.2",
+  "version": "0.1.5",
   "homepage_url": "https://hackerspace.gr",
   "icons": {
     "32": "icons/hsgr-32.png"
