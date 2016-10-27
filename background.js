@@ -11,12 +11,14 @@ function checker() {
          success: function(data) {
              console.log(data.state.open);
              if (data.state.open) {
-                 chrome.browserAction.setTitle({title: 'HSGR is open!'});
-                 chrome.browserAction.setIcon({path: 'icons/openhsgr-32.png'})
+                 chrome.browserAction.setTitle({title: 'HSGR is open with ' + (data.state.message).replace(/\D/g, '') + ' hackers'});
+                 chrome.browserAction.setIcon({path: 'icons/openhsgr-32.png'});
+                 chrome.browserAction.setBadgeText({text: (data.state.message).replace(/\D/g, '')});
+                 chrome.browserAction.setBadgeBackgroundColor({color: '#808080'})
              } else {
                  chrome.browserAction.setTitle({title: 'HSGR is closed'});
-                 chrome.browserAction.setIcon({path: 'icons/hsgr-32.png'})
-                 
+                 chrome.browserAction.setIcon({path: 'icons/hsgr-32.png'});
+                 chrome.browserAction.setBadgeText({text: ''})
              }
          }
      });
@@ -24,8 +26,4 @@ function checker() {
 
 //This calls checker at start and every 15 minutes
 checker();
-setTimeout(checker, 15 * 60 * 1000);
-
-
-
-
+setInterval(checker, 15 * 60 * 1000);
