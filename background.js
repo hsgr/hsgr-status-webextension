@@ -9,7 +9,6 @@ function checker() {
          dataType: 'json',
 
          success: function(data) {
-             console.log('hsgr open? ' + data.state.open);
              if (data.state.open) {
                  chrome.browserAction.setTitle({title: 'HSGR is open with ' + (data.state.message).replace(/\D/g, '') + ' hackers'});
                  chrome.browserAction.setIcon({path: 'icons/openhsgr-32.png'});
